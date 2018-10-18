@@ -87,7 +87,7 @@ int main()
 			int status;
 			//printf(" status number %d\n", status);
                 	wait(&status);
-             		printf(" status:%d. \n", status);		//Child's exit status
+             		printf(" status:%d\n", status);		//Child's exit status
 
         	}
 	}
