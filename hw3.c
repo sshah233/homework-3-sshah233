@@ -77,7 +77,7 @@ int main()
         	int pid = fork();
         	if(pid == 0)
       		{
-			printf("pid: %d", getpid());		//Child's PID
+			printf("pid:%d", getpid());		//Child's PID
                 	execv(argsarr[0], argsarr);
 			exit(0);
         	}
@@ -87,13 +87,16 @@ int main()
 			int status;
 			//printf(" status number %d\n", status);
                 	wait(&status);
-             		printf("status: %d. \n", status);		//Child's exit status
+             		printf(" status:%d. \n", status);		//Child's exit status
 
         	}
 	}
 	
 	return 0;
 }
+
+
+
 
 
 
