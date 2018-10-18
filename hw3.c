@@ -41,7 +41,7 @@ int main()
 
 	while (1)
 	{
-		printf("CS361> ");		//it prints the prompt
+		printf("CS361 >");		//it prints the prompt
 		
         	//read line from terminal
         	fgets(line,500,stdin);
