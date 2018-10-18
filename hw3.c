@@ -33,10 +33,10 @@ int main()
 	signal(SIGTSTP, sig_handler1);
 	
 	char line [500];			//create space
-	char *argsarr[20];
-	argsarr[0] = "/bin/ps ";
-	argsarr[1] =  (char *)0;
-	//char *argsarr[21] = {"/bin/ls ", "-l", (char *)0};
+	//char *argsarr[20];
+	//argsarr[0] = "/bin/ps ";
+	//argsarr[1] =  (char *)0;
+	char *argsarr[21] = {"/bin/ls ", "-l", (char *)0};
 	
 
 	while (1)
@@ -85,7 +85,7 @@ int main()
         	else
 		{
 			int status;
-			printf(" status number %d\n", status);
+			//printf(" status number %d\n", status);
                 	wait(&status);
              		printf(" Status: %d. \n", status);		//Child's exit status
 
@@ -94,5 +94,7 @@ int main()
 	
 	return 0;
 }
+
+
 
 
