@@ -36,7 +36,7 @@ int main()
 	//char *argsarr[20];
 	//argsarr[0] = "/bin/ps ";
 	//argsarr[1] =  (char *)0;
-	char *argsarr[21] = {"/bin/ls ", "-l", (char *)0};
+	char *argsarr[21] = {"/bin/ls ", "-l", (char *)1};
 	
 
 	while (1)
@@ -58,13 +58,25 @@ int main()
 
         	while(word)
         	{
+			/* if(strcmp(word, ">") == 0){
+               			 redirect = 1;
+	   		}
+          		else if(strcmp(word, ">>") == 0){
+             			   redirect = 2;
+	 		 }
+          		else if(strcmp(word, "<") == 0){
+               			 redirect = 3;
+        		  }*/
+
                 	printf("word: %s\n", word);
 			argsarr[i] = word;		//copy word to array
                 	word = strtok(NULL, " ");	//to get next word
                 	i = i + 1;
                 }
+		
         	
 		//print array
+		
 		int j=0;
 		
         	for (;j<i;j++)
@@ -72,12 +84,12 @@ int main()
                 	printf("argsarr[%d]: %s\n", j, argsarr[j]);
 
 		}
-
+		
         	        	        
         	int pid = fork();
         	if(pid == 0)
       		{
-			printf("pid:%d", getpid());		//Child's PID
+			//printf("pid:%d", getpid());		
                 	execv(argsarr[0], argsarr);
 			exit(0);
         	}
@@ -86,14 +98,21 @@ int main()
 		{
 			int status;
 			//printf(" status number %d\n", status);
-                	wait(&status);
-             		printf(" status:%d\n", status);		//Child's exit status
+                	//wait(&sta2us);
+			waitpid(-1,&status,0);
+			int ex = WEXITSTATUS(status);
+             		printf("pid:%d status:%d\n",pid,ex);		
 
         	}
+		
+		
+
 	}
 	
 	return 0;
 }
+
+
 
 
 
