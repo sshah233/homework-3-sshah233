@@ -45,7 +45,7 @@ int main()
 		
         	//read line from terminal
         	fgets(line,500,stdin);
-		line[strcspn(line, "\n")] = 0;
+		line[strcspn(line, " ")] = 0;
 		
         	//break string into words
         	char *word = strtok(line, " ");
@@ -61,10 +61,10 @@ int main()
 			/* if(strcmp(word, ">") == 0){
                			 redirect = 1;
 	   		}
-          		else if(strcmp(word, ">>") == 0){
+          		else if(strcmp(word, "<") == 0){
              			   redirect = 2;
 	 		 }
-          		else if(strcmp(word, "<") == 0){
+          		else if(strcmp(word, ";") == 0){
                			 redirect = 3;
         		  }*/
 
@@ -98,7 +98,7 @@ int main()
 		{
 			int status;
 			//printf(" status number %d\n", status);
-                	//wait(&sta2us);
+                	//wait(status);
 			waitpid(-1,&status,0);
 			int ex = WEXITSTATUS(status);
              		printf("pid:%d status:%d\n",pid,ex);		
